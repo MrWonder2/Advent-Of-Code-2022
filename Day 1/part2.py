@@ -11,4 +11,4 @@ for line in f1.readlines():
 
 sum_calories.sort()
 
-print(sum_calories[-1])
+print(sum_calories[-1]+sum_calories[-2]+sum_calories[-3])
