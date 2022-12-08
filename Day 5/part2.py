@@ -1,7 +1,7 @@
 f = open("input.txt")
 A = ["W", "D", "G", "B", "H", "R", "V"]
 B = ["J", "N", "G", "C", "R", "F"]
-C = ["L", "S", "H", "F", "D", "N", "J"]
+C = ["L", "S", "F", "H", "D", "N", "J"]
 D = ["J", "D", "S", "V"]
 E = ["S", "H", "D", "R", "Q", "W", "N", "V"]
 F = ["P", "G", "H", "C", "M"]
@@ -33,9 +33,12 @@ def stacked(num):
 
 for line in f.readlines():
     line = line.split()
+    temp = []
     for i in range(int(line[1])):
         item = stacked(int(line[3])).pop()
-        stacked(int(line[5])).append(item)
+        temp.append(item)
+    temp = reversed(temp)
+    stacked(int(line[5])).extend(temp)
 
 for i in range(1, 10):
     print(stacked(i).pop(), end="")
